@@ -1,0 +1,36 @@
+.navbar {
+	background-color: #142081;
+
+	.navbar-nav {
+		margin-right: 50px;
+	}
+	.nav-link {
+		font-size: 15px;
+		margin-right: 40px;
+		border-radius: 20px;
+		font-weight: bold;
+		text-align: left;
+		letter-spacing: 0;
+		opacity: 1;
+		text-transform: capitalize;
+		padding: 8px 20px !important;
+		color: #fff !important;
+
+		&:hover {
+			color: #ff6000 !important;
+		}
+	}
+	.home {
+		background-color: #ff6000;
+
+		&:hover {
+			color: #fff !important;
+		}
+	}
+}
+
+.navbarLogo {
+	width: 100px;
+	height: 50px;
+}
+

@@ -1,0 +1,32 @@
+.swiper {
+	border-radius: 20px;
+	border: 2px solid grey;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 20px;
+	height: 400px;
+}
+
+.slider {
+	border-radius: 20px;
+	background-color: pink;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+	display: none;
+}
+
+.swiper-button-next {
+	background-image: url("..//../assets/images/forward.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 0.7cm;
+}
+
+.swiper-button-prev {
+	background-image: url("../../assets/images/back.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 0.7cm;
+}
