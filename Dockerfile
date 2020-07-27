@@ -1,10 +1,20 @@
 FROM node:alpine
-WORKDIR '/app'
 
-COPY package.json .
+RUN apk add alpine-sdk
+RUN apk add bash bash-completion bash-doc
+RUN apk add python
 
-RUN npm install
+RUN mkdir -p /usr/src/app/quiz
 
-COPY . .
+# workaround, to handle 'not get uid/gid' on bitbucket pipeline
+ENV NPM_CONFIG_UNSAFE_PERM=true
 
-CMD ["npm","start"]
+WORKDIR /usr/src/app/quiz
+
+COPY ./app/package*.json ./
+
+RUN npm i -g firebase-tools
+RUN npm i
+RUN npm audit fix
+
+COPY ./app ./

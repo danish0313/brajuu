@@ -1,0 +1,11 @@
+.cache
+.dockerignore
+.git
+.gitignore
+.vscode
+*.log
+doc
+docker-compose*
+Dockerfile*
+node_modules
+README.md

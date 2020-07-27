@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  frontend:
+    build: .
+    env_file:
+      - docker-compose.env
+    volumes:
+      - ./app:/usr/src/app/quiz
+      - /usr/src/app/quiz/node_modules
+    ports:
+      - 4200:4200
+    command: bash -c "npm run serve"

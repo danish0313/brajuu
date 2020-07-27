@@ -1,0 +1,23 @@
+image: docker/compose:alpine-v1.25.2
+
+options:
+  docker: true
+
+definitions:
+  services:
+    docker:
+      memory: 2048
+  buildImage: &buildAndDeploy
+    name: Deploy to Firebase
+    services:
+      - docker
+    script:
+      # @see environment variables:
+      # - https://bitbucket.org/boobtech/boobtech-quiz/admin/addon/admin/pipelines/repository-variables
+      - docker-compose run application bash -c "npm run build && firebase deploy --token $FIREBASE_TOKEN --project $FIREBASE_PROJECT --non-interactive --only hosting -m $BITBUCKET_TAG"
+      - docker-compose down
+
+pipelines:
+  tags:
+    release-*:
+      - step: *buildAndDeploy

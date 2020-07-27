@@ -6,8 +6,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "node-sass": "^4.14.1",
+    "npm-watch": "^0.6.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.2.2",
     "react-dom": "^16.13.1",
@@ -15,8 +17,18 @@
     "react-scripts": "3.4.1",
     "swiper": "^6.0.4"
   },
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "css,js,scss"
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
+    "watch": "npm-watch",
+    "serve": "npm run build && firebase serve --only hosting --host 0.0.0.0 --port=4200 & npm run watch",
     "build": "react-scripts build",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "test": "react-scripts test",
